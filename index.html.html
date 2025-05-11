@@ -150,11 +150,11 @@
       <div class="question-title">Presentació. Estudi Nacional sobre la gestió de l'ansietat</div>
       <p>Benvingudes i benvinguts:</p>
       <p>Aquest qüestionari té l’objectiu identificar quines estratègies d’autogestió de l’ansietat són conegudes per la població adulta catalana, la freqüència d’ús, la percepció d’eficàcia i la facilitat d’implementació percebuda. La informació recollida serà de gran utilitat per a desenvolupar programes de gestió de l'ansietat més eficaços per a la població.</p>
-      <p><strong>Temps de durada:</strong> 15 minuts aproximadament.</p>
-      <p><strong>Incentius:</strong> La vostra col·laboració millorarà la qualitat de vida.</p>
-      <p><strong>Autors:</strong> Grup 4, Construcció d'instruments per a la investigació, Grau de Psicologia, UOC.</p>
-      <p><strong>Protecció de dades:</strong> Conforme Llei Orgànica 3/2018, anonimat i finalitats de recerca.</p>
-      <p><strong>Contacte:</strong> rrodriguezlo@uoc.edu</p>
+      <p><strong>Temps de durada:</strong>  Respondre el qüestionari té una durada aproximada de 15 minuts.</p>
+      <p><strong>Incentius:</strong> La vostra col·laboració serà de gran ajuda per a desenvolupar programes de gestió de l'ansietat més eficaços per a la població amb l'objectiu de millorar la qualitat de vida. </p>
+      <p><strong>Autors:</strong> El qüestionari ha estat creat pel Grup 4 de l’assignatura de Construcció d'instruments per a la investigació del Grau de Psicologia de la Universitat Oberta de Catalunya.</p>
+      <p><strong>Protecció de dades:</strong> D’acord amb la Llei Orgànica 3/2018, de 5 de desembre, de protecció de dades personals i garantia dels drets digitals, es garanteix la confidencialitat, anonimat i seguretat de les dades recollides. La participació és voluntària i les respostes s’utilitzaran únicament amb finalitats de la recerca.</p>
+      <p><strong>Contacte:</strong>   Si tens qualsevol dubte pots contactar pots contactar a :  rrodriguezlo@uoc.edu</p>
       <p>Moltes gràcies per la teva col·laboració.</p>
       <button class="btn" onclick="nextBlock(1)">Següent</button>
     </div>
@@ -162,13 +162,79 @@
     <!-- Block 2 -->
     <div id="block-2" class="question-block">
       <div class="question-title">Bloque 2 - Dades sòcio-demogràfiques</div>
-      <label class="question-option">Sexe:<br>
+      <label class="question-option">Sexe:(escull una opció):<br>
         <input type="radio" name="sexe" value="Masculí"> Masculí<br>
         <input type="radio" name="sexe" value="Femení"> Femení<br>
         <input type="radio" name="sexe" value="No binari"> No binari<br>
         <input type="radio" name="sexe" value="Altres"> Altres (especifica)<br>
         <input type="radio" name="sexe" value="Prefereixo no respondre"> Prefereixo no respondre<br>
       </label>
+      
+            <label class="question-option">Edat:(escull una opció):<br>
+                <input type="radio" name="edat" value="Menys de 18"> Menys de 18 anys (exclòs de l'estudi)<br>
+                <input type="radio" name="edat" value="18-24"> 18-24 anys<br>
+                <input type="radio" name="edat" value="25-34"> 25-34 anys<br>
+                <input type="radio" name="edat" value="35-44"> 35-44 anys<br>
+                <input type="radio" name="edat" value="45-54"> 45-54 anys<br>
+                <input type="radio" name="edat" value="55-64"> 55-64 anys<br>
+                <input type="radio" name="edat" value="65+"> 65 anys o més<br>
+            </label>
+            <label class="question-option">Estat civil:(escull una opció):<br>
+                <input type="radio" name="estat_civil" value="Solter/a"> Solter/a<br>
+                <input type="radio" name="estat_civil" value="Casat/da o en parella estable"> Casat/da o en parella estable<br>
+                <input type="radio" name="estat_civil" value="Separat/da o divorciat/da"> Separat/da o divorciat/da<br>
+                <input type="radio" name="estat_civil" value="Vidu/a"> Vidu/a<br>
+                <input type="radio" name="estat_civil" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Nivell d'estudis finalitzat:(escull una opció):<br>
+                <input type="radio" name="nivell_estudis" value="Sense estudis"> Sense estudis<br>
+                <input type="radio" name="nivell_estudis" value="Educació primària"> Educació primària<br>
+                <input type="radio" name="nivell_estudis" value="Educació secundària"> Educació secundària (ESO o equivalent)<br>
+                <input type="radio" name="nivell_estudis" value="Batxillerat o cicle mitjà"> Batxillerat o cicle formatiu de grau mitjà<br>
+                <input type="radio" name="nivell_estudis" value="Cicle superior"> Cicle formatiu de grau superior<br>
+                <input type="radio" name="nivell_estudis" value="Universitaris"> Estudis universitaris (grau, llicenciatura, diplomatura)<br>
+                <input type="radio" name="nivell_estudis" value="Màster o postgrau"> Màster o postgrau<br>
+                <input type="radio" name="nivell_estudis" value="Doctorat"> Doctorat<br>
+                <input type="radio" name="nivell_estudis" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Situació laboral actual:(escull una opció):<br>
+                <input type="radio" name="situacio_laboral" value="Estudiant"> Estudiant<br>
+                <input type="radio" name="situacio_laboral" value="Estudiant i autònom"> Estudiant i autònom o treballador<br>
+                <input type="radio" name="situacio_laboral" value="Treball complet"> Treballador/a a jornada completa<br>
+                <input type="radio" name="situacio_laboral" value="Treball parcial"> Treballador/a a jornada parcial<br>
+                <input type="radio" name="situacio_laboral" value="Autònom/a"> Autònom/a<br>
+                <input type="radio" name="situacio_laboral" value="Aturat/da"> Aturat/da o en situació de desocupació<br>
+                <input type="radio" name="situacio_laboral" value="Jubilat/da"> Jubilat/da<br>
+                <input type="radio" name="situacio_laboral" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Situació de convivència:(escull una opció):<br>
+                <input type="radio" name="situacio_conv" value="Sol/a"> Visc sol/a<br>
+                <input type="radio" name="situacio_conv" value="Parella"> Visc amb parella<br>
+                <input type="radio" name="situacio_conv" value="Familia"> Visc amb família (pares, germans, etc.)<br>
+                <input type="radio" name="situacio_conv" value="Fills"> Visc amb fills<br>
+                <input type="radio" name="situacio_conv" value="Amics"> Visc amb amics o companys de pis<br>
+                <input type="radio" name="situacio_conv" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Lloc de residència:(escull una opció):<br>
+                <input type="radio" name="residencia" value="Ciutat gran"> Ciutat gran (&gt;100.000 hab.)<br>
+                <input type="radio" name="residencia" value="Ciutat mitjana"> Ciutat mitjana (20k-100k hab.)<br>
+                <input type="radio" name="residencia" value="Poble petit"> Poble o municipi petit (&lt;20k hab.)<br>
+                <input type="radio" name="residencia" value="Zona rural"> Zona rural<br>
+                <input type="radio" name="residencia" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Diagnòstic previ d'ansietat:(escull una opció):<br>
+                <input type="radio" name="diagnostic" value="Sí diagnosticat"> Sí, diagnosticat per un professional<br>
+                <input type="radio" name="diagnostic" value="No sospito"> No, però sospito que en podria tenir<br>
+                <input type="radio" name="diagnostic" value="No pateixo"> No, no pateixo ansietat<br>
+                <input type="radio" name="diagnostic" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Impacte de l'ansietat en la vida diària:(escull una opció):<br>
+                <input type="radio" name="impacte" value="Molt elevat"> Molt elevat<br>
+                <input type="radio" name="impacte" value="Moderat"> Moderat<br>
+                <input type="radio" name="impacte" value="Baix"> Baix<br>
+                <input type="radio" name="impacte" value="Gens"> Gens<br>
+                <input type="radio" name="impacte" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
       <!-- (més preguntes del bloc 2 tal com en el teu HTML original) -->
       <button class="btn" onclick="prevBlock(2)">Anterior</button>
       <button class="btn" onclick="nextBlock(2)">Següent</button>
@@ -177,13 +243,50 @@
     <!-- Block 3 -->
     <div id="block-3" class="question-block">
       <div class="question-title">Bloque 3 - Avaluació d'ansietat</div>
-      <label class="question-option">S'ha sentit nerviós, ansiós o molt alterat:<br>
+      <label class="question-option">S'ha sentit nerviós, ansiós o molt alterat:(escull una opció):<br>
         <input type="radio" name="nervios" value="Mai"> Mai<br>
         <input type="radio" name="nervios" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
         <input type="radio" name="nervios" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
         <input type="radio" name="nervios" value="Gairebé tots els dies"> Gairebé tots els dies<br>
       </label>
       <!-- (més preguntes del bloc 3...) -->
+      
+        <label class="question-option">No has pogut deixar de preocupar-se:(escull una opció):<br>
+                <input type="radio" name="preocupacio" value="Mai"> Mai<br>
+                <input type="radio" name="preocupacio" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="preocupacio" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="preocupacio" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <label class="question-option">T'has preocupat excessivament per diferents coses:(escull una opció):<br>
+                <input type="radio" name="excessiu" value="Mai"> Mai<br>
+                <input type="radio" name="excessiu" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="excessiu" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="excessiu" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <label class="question-option">Has tingut dificultat per relaxar-se:(escull una opció):<br>
+                <input type="radio" name="relaxacio" value="Mai"> Mai<br>
+                <input type="radio" name="relaxacio" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="relaxacio" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="relaxacio" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <label class="question-option">T'has sentit tan intranquil o que no podia estar quiet:(escull una opció):<br>
+                <input type="radio" name="intranquil" value="Mai"> Mai<br>
+                <input type="radio" name="intranquil" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="intranquil" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="intranquil" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <label class="question-option">T'has irritat o enfadat amb facilitat:(escull una opció):<br>
+                <input type="radio" name="irritabilitat" value="Mai"> Mai<br>
+                <input type="radio" name="irritabilitat" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="irritabilitat" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="irritabilitat" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <label class="question-option">Has sentit por, com si hagués de passar una cosa terrible:(escull una opció):<br>
+                <input type="radio" name="por" value="Mai"> Mai<br>
+                <input type="radio" name="por" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="por" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="por" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
       <button class="btn" onclick="prevBlock(3)">Anterior</button>
       <button class="btn" onclick="nextBlock(3)">Següent</button>
     </div>
@@ -231,7 +334,7 @@
       </table>
 
       <fieldset class="custom-list">
-        <legend>Si n'has utilitzat altres (màxim 5), especifica-les:</legend>
+        <legend>Si n'has utilitzat altres , especifica-les:(màxim 5)</legend>
         <input type="text" name="us_estrategies_custom" placeholder="Estratègia 1"><br>
         <input type="text" name="us_estrategies_custom" placeholder="Estratègia 2"><br>
         <input type="text" name="us_estrategies_custom" placeholder="Estratègia 3"><br>
