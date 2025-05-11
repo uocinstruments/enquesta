@@ -57,6 +57,41 @@
             border-left: 4px solid #dc3545;
             background-color: #f8d7da;
         }
+        
+        .question-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.question-table caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: #0056b3;
+}
+/* Ara tot el text de les cel·les queda a l’esquerra */
+.question-table th,
+.question-table td {
+  border: 1px solid #dddddd;
+  padding: 10px;
+  text-align: left;
+}
+.question-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+.question-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+/* Checkbox a la mateixa línia del text */
+.question-table input[type="checkbox"] {
+  transform: scale(1.2);
+  margin-right: 8px;
+  vertical-align: middle;
+  display: inline-block;
+}
 
         /* Error styling for table rows */
         .error-row td {
@@ -245,34 +280,129 @@
         <!-- Block 4 -->
         <div id="block-4" class="question-block">
             <div class="question-title">Bloque 4 - Coneixement i Ús d’Estratègies</div>
-            <label class="question-option">Quines d’aquestes estratègies d’autogestió de l’ansietat coneixes? (Selecciona totes les que coneguis)<br>
-                <input type="checkbox" name="coneixement" value="Exercici físic regular"> Exercici físic regular (córrer, caminar, ioga, etc.)<br>
-                <input type="checkbox" name="coneixement" value="Tècniques de relaxació"> Tècniques de relaxació (respiració profunda, relaxació muscular progressiva)<br>
-                <input type="checkbox" name="coneixement" value="Meditació o mindfulness"> Meditació o mindfulness<br>
-                <input type="checkbox" name="coneixement" value="Visualització guiada o imaginació positiva"> Visualització guiada o imaginació positiva<br>
-                <input type="checkbox" name="coneixement" value="Pràctiques espirituals o religioses"> Pràctiques espirituals o religioses (pregària, meditació religiosa)<br>
-                <input type="checkbox" name="coneixement" value="Suport social"> Suport social (parlar amb amics o familiars)<br>
-                <input type="checkbox" name="coneixement" value="Teràpies alternatives"> Teràpies alternatives (acupuntura, etc.)<br>
-                <input type="checkbox" name="coneixement" value="Expressió artística"> Expressió artística (pintura, música, escriptura)<br>
-                <input type="checkbox" name="coneixement" value="Diari personal o autoreflexió escrita"> Diari personal o autoreflexió escrita<br>
-                <input type="checkbox" name="coneixement" value="Teràpia amb animals"> Teràpia amb animals<br>
-                <input type="checkbox" name="coneixement" value="No utilitzo cap estratègia no farmacològica"> No utilitzo cap estratègia no farmacològica<br>
-                <input type="checkbox" name="coneixement" value="Altres"> Altres (especifica)<br>
-            </label>
-            <label class="question-option">Quines estratègies no farmacològiques utilitzes per gestionar l’ansietat? (Selecciona totes les que utilitzis)<br>
-                <input type="checkbox" name="us_estrategies" value="Exercici físic regular"> Exercici físic regular (córrer, caminar, ioga, etc.)<br>
-                <input type="checkbox" name="us_estrategies" value="Tècniques de relaxació"> Tècniques de relaxació (respiració profunda, relaxació muscular progressiva)<br>
-                <input type="checkbox" name="us_estrategies" value="Meditació o mindfulness"> Meditació o mindfulness<br>
-                <input type="checkbox" name="us_estrategies" value="Visualització guiada o imaginació positiva"> Visualització guiada o imaginació positiva<br>
-                <input type="checkbox" name="us_estrategies" value="Pràctiques espirituals o religioses"> Pràctiques espirituals o religioses (pregària, meditació religiosa)<br>
-                <input type="checkbox" name="us_estrategies" value="Suport social"> Suport social (parlar amb amics o familiars)<br>
-                <input type="checkbox" name="us_estrategies" value="Teràpies alternatives"> Teràpies alternatives (acupuntura, etc.)<br>
-                <input type="checkbox" name="us_estrategies" value="Expressió artística"> Expressió artística (pintura, música, escriptura)<br>
-                <input type="checkbox" name="us_estrategies" value="Diari personal o autoreflexió escrita"> Diari personal o autoreflexió escrita<br>
-                <input type="checkbox" name="us_estrategies" value="Teràpia amb animals"> Teràpia amb animals<br>
-                <input type="checkbox" name="us_estrategies" value="No utilitzo cap estratègia no farmacològica"> No utilitzo cap estratègia no farmacològica<br>
-                <input type="checkbox" name="us_estrategies" value="Altres"> Altres (especifica)<br>
-            </label>
+           
+            <table class="question-table">
+  <caption>Quines d’aquestes estratègies d’autogestió de l’ansietat coneixes? (Selecciona totes les que coneguis)</caption>
+  <thead>
+    <tr>
+      <th>Selecció</th>
+      <th>Estrategia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="Exercici físic regular"></td>
+      <td>Exercici físic regular (córrer, caminar, ioga, etc.)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="Tècniques de relaxació"></td>
+      <td>Tècniques de relaxació (respiració profunda, relaxació muscular progressiva)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="Meditació o mindfulness"></td>
+      <td>Meditació o mindfulness</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="Visualització guiada o imaginació positiva"></td>
+      <td>Visualització guiada o imaginació positiva</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="Pràctiques espirituals o religioses"></td>
+      <td>Pràctiques espirituals o religioses (pregària, meditació religiosa)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="Suport social"></td>
+      <td>Suport social (parlar amb amics o familiars)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="Teràpies alternatives"></td>
+      <td>Teràpies alternatives (acupuntura, etc.)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="Expressió artística"></td>
+      <td>Expressió artística (pintura, música, escriptura)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="Diari personal o autoreflexió escrita"></td>
+      <td>Diari personal o autoreflexió escrita</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="Teràpia amb animals"></td>
+      <td>Teràpia amb animals</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="No utilitzo cap estratègia no farmacològica"></td>
+      <td>No utilitzo cap estratègia no farmacològica</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="coneixement" value="Altres"></td>
+      <td>Altres (especifica)</td>
+    </tr>
+  </tbody>
+</table>
+
+ <table class="question-table">
+  <caption>Quines estratègies no farmacològiques utilitzes per gestionar l’ansietat? (Selecciona totes les que utilitzis)</caption>
+  <thead>
+    <tr>
+      <th>Selecció</th>
+      <th>Estratègia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="Exercici físic regular"></td>
+      <td>Exercici físic regular (córrer, caminar, ioga, etc.)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="Tècniques de relaxació"></td>
+      <td>Tècniques de relaxació (respiració profunda, relaxació muscular progressiva)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="Meditació o mindfulness"></td>
+      <td>Meditació o mindfulness</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="Visualització guiada o imaginació positiva"></td>
+      <td>Visualització guiada o imaginació positiva</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="Pràctiques espirituals o religioses"></td>
+      <td>Pràctiques espirituals o religioses (pregària, meditació religiosa)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="Suport social"></td>
+      <td>Suport social (parlar amb amics o familiars)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="Teràpies alternatives"></td>
+      <td>Teràpies alternatives (acupuntura, etc.)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="Expressió artística"></td>
+      <td>Expressió artística (pintura, música, escriptura)</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="Diari personal o autoreflexió escrita"></td>
+      <td>Diari personal o autoreflexió escrita</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="Teràpia amb animals"></td>
+      <td>Teràpia amb animals</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="No utilitzo cap estratègia no farmacològica"></td>
+      <td>No utilitzo cap estratègia no farmacològica</td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" name="us_estrategies" value="Altres"></td>
+      <td>Altres (especifica)</td>
+    </tr>
+  </tbody>
+</table>
+           
+            
+
             <button class="btn" onclick="prevBlock(4)">Anterior</button>
             <button class="btn" onclick="nextBlock(4)">Següent</button>
         </div>
@@ -280,21 +410,24 @@
         <!-- Block 5 -->
         <div id="block-5" class="question-block">
             <div class="question-title">Bloque 5 - Freqüència, Eficàcia i Facilitat</div>
-            <table>
+           <caption> Amb quina  freqüència utilitzes cada una de les següents estratègies? </caption>
+            <table class="question-table">
                 <thead>
                     <tr><th>Estrategia</th><th>Diàriament</th><th>Setmanalment</th><th>Mensualment</th><th>Rarament</th><th>Mai</th></tr>
                 </thead>
                 <tbody id="taula-frequencia"></tbody>
             </table>
-            <table>
+           Quin grau d’eficàcia perceps en les estratègies que utilitzes?
+            <table class="question-table">
                 <thead>
-                    <tr><th>Estrategia</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+                    <tr><th>Estrategia</th><th>Molt difícil</th><th>Difícil</th><th>Moderada</th><th>Fàcil</th><th>Molt fàcil</th></tr>
                 </thead>
                 <tbody id="taula-eficacia"></tbody>
             </table>
-            <table>
+           Quin grau de facilitat tens per implementar-les? 
+            <table class="question-table">
                 <thead>
-                    <tr><th>Estrategia</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+                    <tr><th>Estrategia</th><th>Molt difícil</th><th>Difícil</th><th>Moderada</th><th>Fàcil</th><th>Molt fàcil</th></tr>
                 </thead>
                 <tbody id="taula-facilitat"></tbody>
             </table>
