@@ -1,0 +1,421 @@
+```html
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qüestionari sobre la Gestió de l'Ansietat</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .question-block { display: none; }
+        .question-block.active { display: block; }
+        .btn {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            margin-right: 10px;
+        }
+        .btn:hover { background-color: #0056b3; }
+        .btn:disabled { background-color: #cccccc; cursor: not-allowed; }
+
+        .question-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+        .question-option {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #444;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .question-option.error {
+            border-left: 4px solid #dc3545;
+            background-color: #f8d7da;
+        }
+
+        /* Error styling for table rows */
+        .error-row td {
+            background-color: #f8d7da;
+        }
+        .error-row td:first-child {
+            border-left: 4px solid #dc3545;
+        }
+
+        #error-messages {
+            color: #dc3545;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #dddddd; text-align: center; padding: 12px; }
+        th { background-color: #f0f0f0; font-weight: bold; color: #333; }
+        tr:nth-child(even) { background-color: #f9f9f9; }
+
+        .submit-message {
+            display: none;
+            text-align: center;
+            padding: 30px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 12px;
+            margin-top: 30px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            th, td { padding: 10px; font-size: 14px; }
+            .question-title { font-size: 20px; }
+            .btn { padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Block 1 -->
+        <div id="block-1" class="question-block active">
+            <div class="question-title">
+                Presentació. Estudi Nacional sobre la gestió de l'ansietat
+            </div>
+            <p>Benvingudes i benvinguts:</p>
+            <p>Aquest qüestionari té l’objectiu identificar quines estratègies d’autogestió de l’ansietat són conegudes per la població adulta catalana, la freqüència d’ús, la percepció d’eficàcia i la facilitat d’implementació percebuda. La informació recollida serà de gran utilitat per a desenvolupar programes de gestió de l'ansietat més eficaços per a la població.</p>
+            <p><strong>Temps de durada:</strong> 15 minuts aproximadament.</p>
+            <p><strong>Incentius:</strong> La vostra col·laboració millorarà la qualitat de vida.</p>
+            <p><strong>Autors:</strong> Grup 4, Construcció d'instruments per a la investigació, Grau de Psicologia, UOC.</p>
+            <p><strong>Protecció de dades:</strong> Conforme Llei Orgànica 3/2018, anonimat i finalitats de recerca.</p>
+            <p><strong>Contacte:</strong> rrodriguezlo@uoc.edu</p>
+            <p>Moltes gràcies per la teva col·laboració.</p>
+            <button class="btn" onclick="nextBlock(1)">Següent</button>
+        </div>
+
+        <!-- Block 2 -->
+        <div id="block-2" class="question-block">
+            <div class="question-title">Bloque 2 - Dades sòcio-demogràfiques</div>
+            <label class="question-option">Sexe:<br>
+                <input type="radio" name="sexe" value="Masculí"> Masculí<br>
+                <input type="radio" name="sexe" value="Femení"> Femení<br>
+                <input type="radio" name="sexe" value="No binari"> No binari<br>
+                <input type="radio" name="sexe" value="Altres"> Altres (especifica)<br>
+                <input type="radio" name="sexe" value="Prefereixo no respondre"> Prefereixo no respondre<br>
+            </label>
+            <label class="question-option">Edat:<br>
+                <input type="radio" name="edat" value="Menys de 18"> Menys de 18 anys (exclòs de l'estudi)<br>
+                <input type="radio" name="edat" value="18-24"> 18-24 anys<br>
+                <input type="radio" name="edat" value="25-34"> 25-34 anys<br>
+                <input type="radio" name="edat" value="35-44"> 35-44 anys<br>
+                <input type="radio" name="edat" value="45-54"> 45-54 anys<br>
+                <input type="radio" name="edat" value="55-64"> 55-64 anys<br>
+                <input type="radio" name="edat" value="65+"> 65 anys o més<br>
+            </label>
+            <label class="question-option">Estat civil:<br>
+                <input type="radio" name="estat_civil" value="Solter/a"> Solter/a<br>
+                <input type="radio" name="estat_civil" value="Casat/da o en parella estable"> Casat/da o en parella estable<br>
+                <input type="radio" name="estat_civil" value="Separat/da o divorciat/da"> Separat/da o divorciat/da<br>
+                <input type="radio" name="estat_civil" value="Vidu/a"> Vidu/a<br>
+                <input type="radio" name="estat_civil" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Nivell d'estudis finalitzat:<br>
+                <input type="radio" name="nivell_estudis" value="Sense estudis"> Sense estudis<br>
+                <input type="radio" name="nivell_estudis" value="Educació primària"> Educació primària<br>
+                <input type="radio" name="nivell_estudis" value="Educació secundària"> Educació secundària (ESO o equivalent)<br>
+                <input type="radio" name="nivell_estudis" value="Batxillerat o cicle mitjà"> Batxillerat o cicle formatiu de grau mitjà<br>
+                <input type="radio" name="nivell_estudis" value="Cicle superior"> Cicle formatiu de grau superior<br>
+                <input type="radio" name="nivell_estudis" value="Universitaris"> Estudis universitaris (grau, llicenciatura, diplomatura)<br>
+                <input type="radio" name="nivell_estudis" value="Màster o postgrau"> Màster o postgrau<br>
+                <input type="radio" name="nivell_estudis" value="Doctorat"> Doctorat<br>
+                <input type="radio" name="nivell_estudis" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Situació laboral actual:<br>
+                <input type="radio" name="situacio_laboral" value="Estudiant"> Estudiant<br>
+                <input type="radio" name="situacio_laboral" value="Estudiant i autònom"> Estudiant i autònom o treballador<br>
+                <input type="radio" name="situacio_laboral" value="Treball complet"> Treballador/a a jornada completa<br>
+                <input type="radio" name="situacio_laboral" value="Treball parcial"> Treballador/a a jornada parcial<br>
+                <input type="radio" name="situacio_laboral" value="Autònom/a"> Autònom/a<br>
+                <input type="radio" name="situacio_laboral" value="Aturat/da"> Aturat/da o en situació de desocupació<br>
+                <input type="radio" name="situacio_laboral" value="Jubilat/da"> Jubilat/da<br>
+                <input type="radio" name="situacio_laboral" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Situació de convivència:<br>
+                <input type="radio" name="situacio_conv" value="Sol/a"> Visc sol/a<br>
+                <input type="radio" name="situacio_conv" value="Parella"> Visc amb parella<br>
+                <input type="radio" name="situacio_conv" value="Familia"> Visc amb família (pares, germans, etc.)<br>
+                <input type="radio" name="situacio_conv" value="Fills"> Visc amb fills<br>
+                <input type="radio" name="situacio_conv" value="Amics"> Visc amb amics o companys de pis<br>
+                <input type="radio" name="situacio_conv" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Lloc de residència:<br>
+                <input type="radio" name="residencia" value="Ciutat gran"> Ciutat gran (&gt;100.000 hab.)<br>
+                <input type="radio" name="residencia" value="Ciutat mitjana"> Ciutat mitjana (20k-100k hab.)<br>
+                <input type="radio" name="residencia" value="Poble petit"> Poble o municipi petit (&lt;20k hab.)<br>
+                <input type="radio" name="residencia" value="Zona rural"> Zona rural<br>
+                <input type="radio" name="residencia" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Diagnòstic previ d'ansietat:<br>
+                <input type="radio" name="diagnostic" value="Sí diagnosticat"> Sí, diagnosticat per un professional<br>
+                <input type="radio" name="diagnostic" value="No sospito"> No, però sospito que en podria tenir<br>
+                <input type="radio" name="diagnostic" value="No pateixo"> No, no pateixo ansietat<br>
+                <input type="radio" name="diagnostic" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <label class="question-option">Impacte de l'ansietat en la vida diària:<br>
+                <input type="radio" name="impacte" value="Molt elevat"> Molt elevat<br>
+                <input type="radio" name="impacte" value="Moderat"> Moderat<br>
+                <input type="radio" name="impacte" value="Baix"> Baix<br>
+                <input type="radio" name="impacte" value="Gens"> Gens<br>
+                <input type="radio" name="impacte" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+            </label>
+            <button class="btn" onclick="prevBlock(2)">Anterior</button>
+            <button class="btn" onclick="nextBlock(2)">Següent</button>
+        </div>
+
+        <!-- Block 3 -->
+        <div id="block-3" class="question-block">
+            <div class="question-title">Bloque 3 - Avaluació d'ansietat</div>
+            <label class="question-option">S'ha sentit nerviós, ansiós o molt alterat:<br>
+                <input type="radio" name="nervios" value="Mai"> Mai<br>
+                <input type="radio" name="nervios" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="nervios" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="nervios" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <label class="question-option">No ha pogut deixar de preocupar-se:<br>
+                <input type="radio" name="preocupacio" value="Mai"> Mai<br>
+                <input type="radio" name="preocupacio" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="preocupacio" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="preocupacio" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <label class="question-option">S'ha preocupat excessivament per diferents coses:<br>
+                <input type="radio" name="excessiu" value="Mai"> Mai<br>
+                <input type="radio" name="excessiu" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="excessiu" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="excessiu" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <label class="question-option">Ha tingut dificultat per relaxar-se:<br>
+                <input type="radio" name="relaxacio" value="Mai"> Mai<br>
+                <input type="radio" name="relaxacio" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="relaxacio" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="relaxacio" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <label class="question-option">S'ha sentit tan intranquil o que no podia estar quiet:<br>
+                <input type="radio" name="intranquil" value="Mai"> Mai<br>
+                <input type="radio" name="intranquil" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="intranquil" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="intranquil" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <label class="question-option">S'ha irritat o enfadat amb facilitat:<br>
+                <input type="radio" name="irritabilitat" value="Mai"> Mai<br>
+                <input type="radio" name="irritabilitat" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="irritabilitat" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="irritabilitat" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <label class="question-option">Ha sentit por, com si hagués de passar una cosa terrible:<br>
+                <input type="radio" name="por" value="Mai"> Mai<br>
+                <input type="radio" name="por" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+                <input type="radio" name="por" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+                <input type="radio" name="por" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+            </label>
+            <button class="btn" onclick="prevBlock(3)">Anterior</button>
+            <button class="btn" onclick="nextBlock(3)">Següent</button>
+        </div>
+
+        <!-- Block 4 -->
+        <div id="block-4" class="question-block">
+            <div class="question-title">Bloque 4 - Coneixement i Ús d’Estratègies</div>
+            <label class="question-option">Quines d’aquestes estratègies d’autogestió de l’ansietat coneixes? (Selecciona totes les que coneguis)<br>
+                <input type="checkbox" name="coneixement" value="Exercici físic regular"> Exercici físic regular (córrer, caminar, ioga, etc.)<br>
+                <input type="checkbox" name="coneixement" value="Tècniques de relaxació"> Tècniques de relaxació (respiració profunda, relaxació muscular progressiva)<br>
+                <input type="checkbox" name="coneixement" value="Meditació o mindfulness"> Meditació o mindfulness<br>
+                <input type="checkbox" name="coneixement" value="Visualització guiada o imaginació positiva"> Visualització guiada o imaginació positiva<br>
+                <input type="checkbox" name="coneixement" value="Pràctiques espirituals o religioses"> Pràctiques espirituals o religioses (pregària, meditació religiosa)<br>
+                <input type="checkbox" name="coneixement" value="Suport social"> Suport social (parlar amb amics o familiars)<br>
+                <input type="checkbox" name="coneixement" value="Teràpies alternatives"> Teràpies alternatives (acupuntura, etc.)<br>
+                <input type="checkbox" name="coneixement" value="Expressió artística"> Expressió artística (pintura, música, escriptura)<br>
+                <input type="checkbox" name="coneixement" value="Diari personal o autoreflexió escrita"> Diari personal o autoreflexió escrita<br>
+                <input type="checkbox" name="coneixement" value="Teràpia amb animals"> Teràpia amb animals<br>
+                <input type="checkbox" name="coneixement" value="No utilitzo cap estratègia no farmacològica"> No utilitzo cap estratègia no farmacològica<br>
+                <input type="checkbox" name="coneixement" value="Altres"> Altres (especifica)<br>
+            </label>
+            <label class="question-option">Quines estratègies no farmacològiques utilitzes per gestionar l’ansietat? (Selecciona totes les que utilitzis)<br>
+                <input type="checkbox" name="us_estrategies" value="Exercici físic regular"> Exercici físic regular (córrer, caminar, ioga, etc.)<br>
+                <input type="checkbox" name="us_estrategies" value="Tècniques de relaxació"> Tècniques de relaxació (respiració profunda, relaxació muscular progressiva)<br>
+                <input type="checkbox" name="us_estrategies" value="Meditació o mindfulness"> Meditació o mindfulness<br>
+                <input type="checkbox" name="us_estrategies" value="Visualització guiada o imaginació positiva"> Visualització guiada o imaginació positiva<br>
+                <input type="checkbox" name="us_estrategies" value="Pràctiques espirituals o religioses"> Pràctiques espirituals o religioses (pregària, meditació religiosa)<br>
+                <input type="checkbox" name="us_estrategies" value="Suport social"> Suport social (parlar amb amics o familiars)<br>
+                <input type="checkbox" name="us_estrategies" value="Teràpies alternatives"> Teràpies alternatives (acupuntura, etc.)<br>
+                <input type="checkbox" name="us_estrategies" value="Expressió artística"> Expressió artística (pintura, música, escriptura)<br>
+                <input type="checkbox" name="us_estrategies" value="Diari personal o autoreflexió escrita"> Diari personal o autoreflexió escrita<br>
+                <input type="checkbox" name="us_estrategies" value="Teràpia amb animals"> Teràpia amb animals<br>
+                <input type="checkbox" name="us_estrategies" value="No utilitzo cap estratègia no farmacològica"> No utilitzo cap estratègia no farmacològica<br>
+                <input type="checkbox" name="us_estrategies" value="Altres"> Altres (especifica)<br>
+            </label>
+            <button class="btn" onclick="prevBlock(4)">Anterior</button>
+            <button class="btn" onclick="nextBlock(4)">Següent</button>
+        </div>
+
+        <!-- Block 5 -->
+        <div id="block-5" class="question-block">
+            <div class="question-title">Bloque 5 - Freqüència, Eficàcia i Facilitat</div>
+            <table>
+                <thead>
+                    <tr><th>Estrategia</th><th>Diàriament</th><th>Setmanalment</th><th>Mensualment</th><th>Rarament</th><th>Mai</th></tr>
+                </thead>
+                <tbody id="taula-frequencia"></tbody>
+            </table>
+            <table>
+                <thead>
+                    <tr><th>Estrategia</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+                </thead>
+                <tbody id="taula-eficacia"></tbody>
+            </table>
+            <table>
+                <thead>
+                    <tr><th>Estrategia</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+                </thead>
+                <tbody id="taula-facilitat"></tbody>
+            </table>
+            <button class="btn" onclick="prevBlock(5)">Anterior</button>
+            <button class="btn" onclick="nextBlock(5)">Següent</button>
+        </div>
+
+        <!-- Block 6 -->
+        <div id="block-6" class="question-block">
+            <div class="question-title">Bloque 6 - Finalització i Agradeixement</div>
+            <p>Gràcies per haver completat aquest qüestionari sobre la gestió de l'ansietat. La teva contribució és molt important.</p>
+            <button class="btn" onclick="prevBlock(6)">Anterior</button>
+            <button class="btn" onclick="submitForm()">Finalitzar</button>
+        </div>
+
+        <!-- Errors -->
+        <div id="error-messages"></div>
+
+        <!-- Final message -->
+        <div id="submit-message" class="submit-message">
+            Gràcies per completar el qüestionari.
+        </div>
+    </div>
+
+    <script>
+        function clearErrors(block) {
+            // remove question-option errors
+            block.querySelectorAll('.question-option.error').forEach(el => el.classList.remove('error'));
+            // remove table-row errors
+            block.querySelectorAll('tr.error-row').forEach(row => row.classList.remove('error-row'));
+            // clear global error messages
+            document.getElementById('error-messages').innerHTML = '';
+        }
+
+        function validateBlock(i) {
+            var block = document.getElementById('block-' + i);
+            clearErrors(block);
+
+            var errorMessages = [];
+
+            if (i === 5) {
+                // Validate each row in the three tables
+                ['taula-frequencia','taula-eficacia','taula-facilitat'].forEach(function(tableId) {
+                    var rows = document.getElementById(tableId).querySelectorAll('tr');
+                    rows.forEach(function(row) {
+                        var inputs = row.querySelectorAll('input');
+                        if (inputs.length === 0) return;
+                        var name = inputs[0].name;
+                        var checked = block.querySelectorAll('input[name="' + name + '"]:checked').length;
+                        if (checked === 0) {
+                            row.classList.add('error-row');
+                            var strategy = row.cells[0].textContent.trim();
+                            errorMessages.push('Cal seleccionar una opció per a "' + strategy + '".');
+                        }
+                    });
+                });
+            } else {
+                // Existing radio/checkbox validation
+                var inputs = Array.from(block.querySelectorAll('input'));
+                var names = Array.from(new Set(inputs.map(input => input.name).filter(name => name)));
+                names.forEach(function(name) {
+                    var checked = block.querySelectorAll('input[name="' + name + '"]:checked').length;
+                    if (checked === 0) {
+                        var first = block.querySelector('input[name="' + name + '"]');
+                        var label = first.closest('label.question-option');
+                        if (label) label.classList.add('error');
+                        var qText = label ? label.childNodes[0].textContent.replace(':','').trim() : name;
+                        errorMessages.push('Cal respondre "' + qText + '".');
+                    }
+                });
+            }
+
+            if (errorMessages.length > 0) {
+                var errDiv = document.getElementById('error-messages');
+                var ul = document.createElement('ul');
+                errorMessages.forEach(msg => {
+                    var li = document.createElement('li');
+                    li.textContent = msg;
+                    ul.appendChild(li);
+                });
+                errDiv.appendChild(ul);
+                errDiv.scrollIntoView({ behavior: 'smooth' });
+                return false;
+            }
+            return true;
+        }
+
+        function nextBlock(i) {
+            if (!validateBlock(i)) return;
+            document.getElementById('block-' + i).classList.remove('active');
+            document.getElementById('block-' + (i + 1)).classList.add('active');
+            if (i === 4) populateTables();
+        }
+
+        function prevBlock(i) {
+            document.getElementById('block-' + i).classList.remove('active');
+            document.getElementById('block-' + (i - 1)).classList.add('active');
+        }
+
+        function populateTables() {
+            var selected = Array.from(document.querySelectorAll("input[name='us_estrategies']:checked")).map(e => e.value);
+            var freqBody = "", effBody = "", facBody = "";
+            selected.forEach(strat => {
+                freqBody += `<tr><td>${strat}</td>${['Diàriament','Setmanalment','Mensualment','Rarament','Mai']
+                    .map(f => `<td><input type="radio" name="freq_${strat}" value="${f}"></td>`).join('')}</tr>`;
+                effBody += `<tr><td>${strat}</td>${[1,2,3,4,5]
+                    .map(v => `<td><input type="radio" name="eff_${strat}" value="${v}"></td>`).join('')}</tr>`;
+                facBody += `<tr><td>${strat}</td>${[1,2,3,4,5]
+                    .map(v => `<td><input type="radio" name="fac_${strat}" value="${v}"></td>`).join('')}</tr>`;
+            });
+            document.getElementById('taula-frequencia').innerHTML = freqBody;
+            document.getElementById('taula-eficacia').innerHTML = effBody;
+            document.getElementById('taula-facilitat').innerHTML = facBody;
+        }
+
+        function submitForm() {
+            clearErrors(document.getElementById('block-6'));
+            document.querySelector('.container').style.display = 'none';
+            document.getElementById('submit-message').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+```
