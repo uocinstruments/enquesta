@@ -243,6 +243,7 @@
     <!-- Block 3 -->
     <div id="block-3" class="question-block">
       <div class="question-title">Bloque 3 - Avaluació d'ansietat</div>
+      Assenyala amb quina freqüència ha patit els següents problemes en els últims 15 dies:
       <label class="question-option">S'ha sentit nerviós, ansiós o molt alterat:(escull una opció):<br>
         <input type="radio" name="nervios" value="Mai"> Mai<br>
         <input type="radio" name="nervios" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
@@ -309,7 +310,7 @@
           <tr><td><input type="checkbox" name="coneixement" value="Expressió artística"></td><td>Expressió artística (pintura, música, escriptura)</td></tr>
           <tr><td><input type="checkbox" name="coneixement" value="Diari personal o autoreflexió escrita"></td><td>Diari personal o autoreflexió escrita</td></tr>
           <tr><td><input type="checkbox" name="coneixement" value="Teràpia amb animals"></td><td>Teràpia amb animals</td></tr>
-          <tr><td><input type="checkbox" name="coneixement" value="No utilitzo cap estratègia no farmacològica"></td><td>No utilitzo cap estratègia no farmacològica</td></tr>
+          <tr><td><input type="checkbox" name="coneixement" value="No conec cap estratègia no farmacològica"></td><td>No conec cap estratègia no farmacològica</td></tr>
         <!--  <tr><td><input type="checkbox" name="coneixement" value="Altres"></td><td>Altres (especifica)</td></tr> -->
         </tbody>
       </table>
@@ -402,7 +403,7 @@
               const label = id === 'taula-frequencia' ? 'freqüència'
                           : id === 'taula-eficacia'   ? 'eficàcia'
                           : 'facilitat';
-              errors.push(`Cal seleccionar la ${label} per a "${estr}".`);
+              errors.push(`Si us plau, cal seleccionar la ${label} per a "${estr}".`);
             }
           });
         });
@@ -416,7 +417,7 @@
             const label = first.closest('label.question-option');
             if (label) label.classList.add('error');
             const text  = label ? label.childNodes[0].textContent.replace(':','').trim() : name;
-            errors.push(`Cal respondre "${text}".`);
+            errors.push(`Si us plau, cal respondre "${text}".`);
           }
         });
       }
@@ -470,10 +471,10 @@
         facB.insertAdjacentHTML('beforeend', `
           <tr><td>${strat}</td><td>
             <select name="fac_${id}">
-              <option value="">--Selecciona--</option>
-              <option>1</option><option>2</option>
-              <option>3</option><option>4</option>
-              <option>5</option>
+               <option value="">--Selecciona--</option>
+              <option>Molt difícil</option><option>Difícil</option>
+              <option>Moderada</option><option>Fàcil</option>
+              <option>Molt fàcil</option>
             </select>
           </td></tr>`);
       });
