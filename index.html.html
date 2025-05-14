@@ -148,11 +148,11 @@
     <div id="block-1" class="question-block active">
       <div class="question-title">Presentació. Estudi Nacional sobre la gestió de l'ansietat</div>
       <p>Benvingudes i benvinguts:</p>
-      <p>Aquest qüestionari té l’objectiu identificar quines estratègies d’autogestió de l’ansietat són conegudes per la població adulta catalana, la freqüència d’ús, la percepció d’eficàcia i la facilitat d’implementació percebuda. La informació recollida serà de gran utilitat per a desenvolupar programes de gestió de l'ansietat més eficaços per a la població.</p>
-      <p><strong>Temps de durada:</strong> Respondre el qüestionari té una durada aproximada de 15 minuts.</p>
+      <p>Aquest qüestionari té l’objectiu d’identificar quines estratègies d’autogestió de l’ansietat són conegudes per la població adulta catalana, la freqüència d’ús, la percepció d’eficàcia i la facilitat d’implementació percebuda. La informació recollida serà de gran utilitat per a desenvolupar programes de gestió de l'ansietat més eficaços per a la població.</p>
+      <p><strong>Durada:</strong> Respondre el qüestionari té una durada aproximada de 15 minuts.</p>
       <p><strong>Incentius:</strong> La vostra col·laboració serà de gran ajuda per a desenvolupar programes de gestió de l'ansietat més eficaços per a la població amb l'objectiu de millorar la qualitat de vida.</p>
-      <p><strong>Autors:</strong> El qüestionari ha estat creat pel Grup 4 de l’assignatura de Construcció d'instruments per a la investigació del Grau de Psicologia de la Universitat Oberta de Catalunya.</p>
-      <p><strong>Protecció de dades:</strong> D’acord amb la Llei Orgànica 3/2018, de 5 de desembre, de protecció de dades personals i garantia dels drets digitals, es garanteix la confidencialitat, anonimat i seguretat de les dades recollides. La participació és voluntària i les respostes s’utilitzaran únicament amb finalitats de la recerca.</p>
+      <p><strong>Autors:</strong>El qüestionari ha estat elaborat pel Grup 4 de l’assignatura de Construcció d'instruments per a la investigació del Grau de Psicologia de la Universitat Oberta de Catalunya.</p>
+      <p><strong>Protecció de dades:</strong> D’acord amb la Llei Orgànica 3/2018, de 5 de desembre, de protecció de dades personals i garantia dels drets digitals, es garanteix la confidencialitat, anonimat i seguretat de les dades recollides. La participació és voluntària i les respostes s’utilitzaran exclusivament amb finalitats de la recerca.</p>
       <p><strong>Contacte:</strong> Si tens qualsevol dubte pots contactar a: rrodriguezlo@uoc.edu</p>
       <p>Moltes gràcies per la teva col·laboració.</p>
       <button class="btn" onclick="nextBlock(1)">Següent</button>
@@ -160,14 +160,22 @@
 
     <!-- Block 2 -->
     <div id="block-2" class="question-block">
-      <div class="question-title">Bloque 2 - Dades sòcio-demogràfiques</div>
+      <div class="question-title">Bloc 2 - Dades sòcio-demogràfiques</div>
       <label class="question-option">Sexe:(escull una opció):<br>
         <input type="radio" name="sexe" value="Masculí"> Masculí<br>
         <input type="radio" name="sexe" value="Femení"> Femení<br>
-        <input type="radio" name="sexe" value="No binari"> No binari<br>
         <input type="radio" name="sexe" value="Altres"> Altres (especifica)<br>
         <input type="radio" name="sexe" value="Prefereixo no respondre"> Prefereixo no respondre<br>
       </label>
+      
+       <label class="question-option">Quin és el teu gènere?:(escull una opció):<br>
+        <input type="radio" name="genere" value="Masculí"> Masculí<br>
+        <input type="radio" name="genere" value="Femení"> Femení<br>
+        <input type="radio" name="genere" value="No binari"> No binari<br>
+        <input type="radio" name="genere" value="Altres"> Una altra identitat (especifica)<br>
+        <input type="radio" name="genere" value="Prefereixo no respondre"> Prefereixo no respondre<br>
+      </label>
+      
       <label class="question-option">Edat:(escull una opció):<br>
         <input type="radio" name="edat" value="Menys de 18"> Menys de 18 anys (exclòs de l'estudi)<br>
         <input type="radio" name="edat" value="18-24"> 18-24 anys<br>
@@ -177,35 +185,38 @@
         <input type="radio" name="edat" value="55-64"> 55-64 anys<br>
         <input type="radio" name="edat" value="65+"> 65 anys o més<br>
       </label>
-      <label class="question-option">Estat civil:(escull una opció):<br>
+      <label class="question-option">Quin és el teu estat civil?:(escull una opció):<br>
         <input type="radio" name="estat_civil" value="Solter/a"> Solter/a<br>
-        <input type="radio" name="estat_civil" value="Casat/da o en parella estable"> Casat/da o en parella estable<br>
+        <input type="radio" name="estat_civil" value="Casat/da"> Casat/da<br>
+        <input type="radio" name="estat_civil" value="parella estable"> Parella estable<br>
         <input type="radio" name="estat_civil" value="Separat/da o divorciat/da"> Separat/da o divorciat/da<br>
         <input type="radio" name="estat_civil" value="Vidu/a"> Vidu/a<br>
-        <input type="radio" name="estat_civil" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+        <input type="radio" name="estat_civil" value="Prefereixo no dir-ho"> Prefereixo no respondre<br>
       </label>
-      <label class="question-option">Nivell d'estudis finalitzat:(escull una opció):<br>
+      <label class="question-option">Quin és el nivell més alt d’estudis que has finalitzat?:(escull una opció):<br>
         <input type="radio" name="nivell_estudis" value="Sense estudis"> Sense estudis<br>
         <input type="radio" name="nivell_estudis" value="Educació primària"> Educació primària<br>
         <input type="radio" name="nivell_estudis" value="Educació secundària"> Educació secundària (ESO o equivalent)<br>
         <input type="radio" name="nivell_estudis" value="Batxillerat o cicle mitjà"> Batxillerat o cicle formatiu de grau mitjà<br>
-        <input type="radio" name="nivell_estudis" value="Cicle superior"> Cicle formatiu de grau superior<br>
+        <input type="radio" name="nivell_estudis" value="Cicle mitja"> Cicle formatiu de grau mitjà<br>
+         <input type="radio" name="nivell_estudis" value="Cicle superior"> Cicle formatiu de grau superior<br>
         <input type="radio" name="nivell_estudis" value="Universitaris"> Estudis universitaris (grau, llicenciatura, diplomatura)<br>
         <input type="radio" name="nivell_estudis" value="Màster o postgrau"> Màster o postgrau<br>
         <input type="radio" name="nivell_estudis" value="Doctorat"> Doctorat<br>
-        <input type="radio" name="nivell_estudis" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+        <input type="radio" name="nivell_estudis" value="Prefereixo no dir-ho"> Prefereixo no respondre<br>
       </label>
-      <label class="question-option">Situació laboral actual:(escull una opció):<br>
+      <label class="question-option">Quina és la teva situació laboral actual? :(escull una opció):<br>
         <input type="radio" name="situacio_laboral" value="Estudiant"> Estudiant<br>
-        <input type="radio" name="situacio_laboral" value="Estudiant i autònom"> Estudiant i autònom o treballador<br>
-        <input type="radio" name="situacio_laboral" value="Treball complet"> Treballador/a a jornada completa<br>
-        <input type="radio" name="situacio_laboral" value="Treball parcial"> Treballador/a a jornada parcial<br>
+        <input type="radio" name="situacio_laboral" value="Estudiant i autònom">  Estudiant i autònom/a o treballador/a<br>
+        <input type="radio" name="situacio_laboral" value="Treball complet"> Treballador/a assalariat/da a jornada completa<br>
+        <input type="radio" name="situacio_laboral" value="Treball parcial"> Treballador/a assalariat/da a jornada parcial<br>
         <input type="radio" name="situacio_laboral" value="Autònom/a"> Autònom/a<br>
-        <input type="radio" name="situacio_laboral" value="Aturat/da"> Aturat/da o en situació de desocupació<br>
+        <input type="radio" name="situacio_laboral" value="Aturat/da"> En situació de desocupació (aturat/da)<br>
+         <input type="radio" name="situacio_laboral" value="tasques de la llar">  Dedicat/da a tasques de la llar<br>
         <input type="radio" name="situacio_laboral" value="Jubilat/da"> Jubilat/da<br>
-        <input type="radio" name="situacio_laboral" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+        <input type="radio" name="situacio_laboral" value="Prefereixo no dir-ho"> Prefereixo no respondre <br>
       </label>
-      <label class="question-option">Situació de convivència:(escull una opció):<br>
+      <label class="question-option">On resideixes?:(escull una opció):<br>
         <input type="radio" name="situacio_conv" value="Sol/a"> Visc sol/a<br>
         <input type="radio" name="situacio_conv" value="Parella"> Visc amb parella<br>
         <input type="radio" name="situacio_conv" value="Familia"> Visc amb família (pares, germans, etc.)<br>
@@ -214,24 +225,24 @@
         <input type="radio" name="situacio_conv" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
       </label>
       <label class="question-option">Lloc de residència:(escull una opció):<br>
-        <input type="radio" name="residencia" value="Ciutat gran"> Ciutat gran (&gt;100.000 hab.)<br>
-        <input type="radio" name="residencia" value="Ciutat mitjana"> Ciutat mitjana (20k-100k hab.)<br>
-        <input type="radio" name="residencia" value="Poble petit"> Poble o municipi petit (&lt;20k hab.)<br>
-        <input type="radio" name="residencia" value="Zona rural"> Zona rural<br>
-        <input type="radio" name="residencia" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+        <input type="radio" name="residencia" value="Ciutat gran"> Ciutat gran (més de 100.000 habitants)<br>
+        <input type="radio" name="residencia" value="Ciutat mitjana"> Ciutat mitjana (entre 20.000 i 100.000 habitants)<br>
+        <input type="radio" name="residencia" value="Municipi petit"> Municipi petit (menys de 20.000 habitants)<br>
+        <input type="radio" name="residencia" value="Zona rural"> Zona rural (disseminats, masies, urbanitzacions aïllades, etc.)<br>
+        <input type="radio" name="residencia" value="Prefereixo no dir-ho"> Prefereixo no respondre<br>
       </label>
-      <label class="question-option">Diagnòstic previ d'ansietat:(escull una opció):<br>
+      <label class="question-option">T’han diagnosticat mai ansietat?:(escull una opció):<br>
         <input type="radio" name="diagnostic" value="Sí diagnosticat"> Sí, diagnosticat per un professional<br>
         <input type="radio" name="diagnostic" value="No sospito"> No, però sospito que en podria tenir<br>
         <input type="radio" name="diagnostic" value="No pateixo"> No, no pateixo ansietat<br>
-        <input type="radio" name="diagnostic" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+        <input type="radio" name="diagnostic" value="Prefereixo no dir-ho"> Prefereixo no respondre<br>
       </label>
-      <label class="question-option">Impacte de l'ansietat en la vida diària:(escull una opció):<br>
-        <input type="radio" name="impacte" value="Molt elevat"> Molt elevat<br>
+      <label class="question-option">Quin impacte té l’ansietat en el teu dia a dia?:(escull una opció):<br>
+        <input type="radio" name="impacte" value="Alt"> Alt<br>
         <input type="radio" name="impacte" value="Moderat"> Moderat<br>
         <input type="radio" name="impacte" value="Baix"> Baix<br>
-        <input type="radio" name="impacte" value="Gens"> Gens<br>
-        <input type="radio" name="impacte" value="Prefereixo no dir-ho"> Prefereixo no dir-ho<br>
+        <input type="radio" name="impacte" value="Nul"> Nul<br>
+        <input type="radio" name="impacte" value="Prefereixo no dir-ho"> Prefereixo no respondre<br>
       </label>
       <button class="btn" onclick="prevBlock(2)">Anterior</button>
       <button class="btn" onclick="nextBlock(2)">Següent</button>
@@ -239,15 +250,15 @@
 
     <!-- Block 3 -->
     <div id="block-3" class="question-block">
-      <div class="question-title">Bloque 3 - Avaluació d'ansietat</div>
-      <p>Assenyala amb quina freqüència ha patit els següents problemes en els últims 15 dies:</p>
-      <label class="question-option">T'has sentit nerviós, ansiós o molt alterat:(escull una opció):<br>
+      <div class="question-title">Bloc 3 - Avaluació de l’ansietat </div>
+      <p>Assenyala amb quina freqüència has patit els següents problemes en els últims 15 dies:</p>
+      <label class="question-option">T’has sentit nerviós/a, ansiós/a o molt alterat/da:(escull una opció):<br>
         <input type="radio" name="nervios" value="Mai"> Mai<br>
         <input type="radio" name="nervios" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
         <input type="radio" name="nervios" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
         <input type="radio" name="nervios" value="Gairebé tots els dies"> Gairebé tots els dies<br>
       </label>
-      <label class="question-option">No has pogut deixar de preocupar-se:(escull una opció):<br>
+      <label class="question-option">No has pogut deixar de preocupar-te:(escull una opció):<br>
         <input type="radio" name="preocupacio" value="Mai"> Mai<br>
         <input type="radio" name="preocupacio" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
         <input type="radio" name="preocupacio" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
@@ -259,13 +270,13 @@
         <input type="radio" name="excessiu" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
         <input type="radio" name="excessiu" value="Gairebé tots els dies"> Gairebé tots els dies<br>
       </label>
-      <label class="question-option">Has tingut dificultat per relaxar-se:(escull una opció):<br>
+      <label class="question-option">Has tingut dificultat per relaxar-te:(escull una opció):<br>
         <input type="radio" name="relaxacio" value="Mai"> Mai<br>
         <input type="radio" name="relaxacio" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
         <input type="radio" name="relaxacio" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
         <input type="radio" name="relaxacio" value="Gairebé tots els dies"> Gairebé tots els dies<br>
       </label>
-      <label class="question-option">T'has sentit tan intranquil o que no podia estar quiet:(escull una opció):<br>
+      <label class="question-option">T'has sentit tan intranquil/a o que no podies estar quiet/a:(escull una opció):<br>
         <input type="radio" name="intranquil" value="Mai"> Mai<br>
         <input type="radio" name="intranquil" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
         <input type="radio" name="intranquil" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
@@ -289,7 +300,7 @@
 
     <!-- Block 4 -->
     <div id="block-4" class="question-block">
-      <div class="question-title">Bloque 4 - Coneixement i Ús d’Estratègies</div>
+      <div class="question-title">Bloc 4 - Coneixement i Ús d’Estratègies</div>
 
       <table class="question-table">
         <caption>Quines d’aquestes estratègies d’autogestió de l’ansietat coneixes? (Selecciona totes les que coneguis)</caption>
@@ -298,14 +309,13 @@
           <tr><td><input type="checkbox" name="coneixement" value="No conec cap estratègia no farmacològica"></td><td>No conec cap estratègia no farmacològica</td></tr>
           <tr><td><input type="checkbox" name="coneixement" value="Exercici físic regular"></td><td>Exercici físic regular (córrer, caminar, ioga, etc.)</td></tr>
           <tr><td><input type="checkbox" name="coneixement" value="Tècniques de relaxació"></td><td>Tècniques de relaxació (respiració profunda, relaxació muscular progressiva)</td></tr>
-          <tr><td><input type="checkbox" name="coneixement" value="Meditació o mindfulness"></td><td>Meditació o mindfulness</td></tr>
+          <tr><td><input type="checkbox" name="coneixement" value="Meditació o mindfulness"></td><td>Meditació o <i>mindfulness </i></td></tr>
           <tr><td><input type="checkbox" name="coneixement" value="Visualització guiada o imaginació positiva"></td><td>Visualització guiada o imaginació positiva</td></tr>
-          <tr><td><input type="checkbox" name="coneixement" value="Pràctiques espirituals o religioses"></td><td>Pràctiques espirituals o religioses (pregària, meditació religiosa)</td></tr>
+          <tr><td><input type="checkbox" name="coneixement" value="Pràctiques espirituals o religioses"></td><td>Pràctiques espirituals o religioses (pregària, meditació religiosa, etc.)</td></tr>
           <tr><td><input type="checkbox" name="coneixement" value="Suport social"></td><td>Suport social (parlar amb amics o familiars)</td></tr>
-          <tr><td><input type="checkbox" name="coneixement" value="Teràpies alternatives"></td><td>Teràpies alternatives (acupuntura, etc.)</td></tr>
-          <tr><td><input type="checkbox" name="coneixement" value="Expressió artística"></td><td>Expressió artística (pintura, música, escriptura)</td></tr>
+          <tr><td><input type="checkbox" name="coneixement" value="Expressió artística"></td><td>Expressió artística (pintura, música, escriptura, dansa, etc.)</td></tr>
           <tr><td><input type="checkbox" name="coneixement" value="Diari personal o autoreflexió escrita"></td><td>Diari personal o autoreflexió escrita</td></tr>
-          <tr><td><input type="checkbox" name="coneixement" value="Teràpia amb animals"></td><td>Teràpia amb animals</td></tr>
+          <tr><td><input type="checkbox" name="coneixement" value="Teràpia amb animals"></td><td>Interacció amb animals/mascotes</td></tr>
         </tbody>
       </table>
 
@@ -316,19 +326,19 @@
           <tr><td><input type="checkbox" name="us_estrategies" value="No utilitzo cap estratègia no farmacològica"></td><td>No utilitzo cap estratègia no farmacològica</td></tr>
           <tr><td><input type="checkbox" name="us_estrategies" value="Exercici físic regular"></td><td>Exercici físic regular (córrer, caminar, ioga, etc.)</td></tr>
           <tr><td><input type="checkbox" name="us_estrategies" value="Tècniques de relaxació"></td><td>Tècniques de relaxació (respiració profunda, relaxació muscular progressiva)</td></tr>
-          <tr><td><input type="checkbox" name="us_estrategies" value="Meditació o mindfulness"></td><td>Meditació o mindfulness</td></tr>
+          <tr><td><input type="checkbox" name="us_estrategies" value="Meditació o mindfulness"></td><td>Meditació o <i>mindfulness </i></td></tr>
           <tr><td><input type="checkbox" name="us_estrategies" value="Visualització guiada o imaginació positiva"></td><td>Visualització guiada o imaginació positiva</td></tr>
           <tr><td><input type="checkbox" name="us_estrategies" value="Pràctiques espirituals o religioses"></td><td>Pràctiques espirituals o religioses (pregària, meditació religiosa)</td></tr>
           <tr><td><input type="checkbox" name="us_estrategies" value="Suport social"></td><td>Suport social (parlar amb amics o familiars)</td></tr>
-          <tr><td><input type="checkbox" name="us_estrategies" value="Teràpies alternatives"></td><td>Teràpies alternatives (acupuntura, etc.)</td></tr>
           <tr><td><input type="checkbox" name="us_estrategies" value="Expressió artística"></td><td>Expressió artística (pintura, música, escriptura)</td></tr>
           <tr><td><input type="checkbox" name="us_estrategies" value="Diari personal o autoreflexió escrita"></td><td>Diari personal o autoreflexió escrita</td></tr>
-          <tr><td><input type="checkbox" name="us_estrategies" value="Teràpia amb animals"></td><td>Teràpia amb animals</td></tr>
+          <tr><td><input type="checkbox" name="us_estrategies" value="Teràpia amb animals"></td><td>Interacció amb animals/mascotes</td></tr>
         </tbody>
       </table>
 
       <fieldset class="custom-list">
-        <legend>Si n'has utilitzat altres, especifica-les (màxim 5)</legend>
+        <legend>Has utilitzat altres estratègies no farmacològiques d’autogestió de l’ansietat que no figuren al llistat anterior? (Especifica’n un màxim de 5)
+</legend>
         <input type="text" name="us_estrategies_custom" placeholder="Estratègia 1"><br>
         <input type="text" name="us_estrategies_custom" placeholder="Estratègia 2"><br>
         <input type="text" name="us_estrategies_custom" placeholder="Estratègia 3"><br>
@@ -342,7 +352,7 @@
 
     <!-- Block 4b: Raons per no utilitzar cap estratègia -->
     <div id="block-4b" class="question-block">
-      <div class="question-title">Raons per no utilitzar estratègies</div>
+      <div class="question-title"></div>
       <table class="question-table">
         <caption>Per què no utilitzes cap estratègia no farmacològica? (Selecciona totes les que s'apliquin)</caption>
         <thead><tr><th>Selecció</th><th>Raó</th></tr></thead>
@@ -363,19 +373,20 @@
 
     <!-- Block 5 -->
     <div id="block-5" class="question-block">
-      <div class="question-title">Bloque 5 - Freqüència, Eficàcia i Facilitat</div>
+      <div class="question-title">Bloc 5 - Freqüència, Eficàcia i Facilitat</div>
       <table id="taula-frequencia" class="question-table">
-        <caption>Amb quina freqüència utilitzes cada estratègia?</caption>
+        <caption>Amb quina freqüència utilitzes aquesta estratègia?  </caption>
         <thead><tr><th>Estrategia</th><th>Freqüència</th></tr></thead>
         <tbody></tbody>
       </table>
       <table id="taula-eficacia" class="question-table">
-        <caption>Quin grau d’eficàcia perceps?</caption>
+        <caption>Com valores l’efectivitat d’aquesta estratègia?</caption>
         <thead><tr><th>Estrategia</th><th>Eficàcia</th></tr></thead>
         <tbody></tbody>
       </table>
       <table id="taula-facilitat" class="question-table">
-        <caption>Quina facilitat tens per implementar-les?</caption>
+        <caption>Com de fàcil et resulta posar en pràctica aquesta estratègia?
+</caption>
         <thead><tr><th>Estrategia</th><th>Facilitat</th></tr></thead>
         <tbody></tbody>
       </table>
@@ -385,8 +396,8 @@
 
     <!-- Block 6 -->
     <div id="block-6" class="question-block">
-      <div class="question-title">Bloque 6 - Finalització i Agraïment</div>
-      <p>Gràcies per haver completat aquest qüestionari sobre la gestió de l'ansietat. La teva contribució és molt important.</p>
+      
+      <p>Gràcies per haver completat aquest qüestionari sobre la gestió de l'ansietat. La teva participació és molt valuosa i contribuirà al coneixement sobre les estratègies d’autogestió de l’ansietat conegudes i utilitzades per la població catalana.</p>
       <button class="btn" onclick="prevFromFinal()">Anterior</button>
       <button class="btn" onclick="submitForm()">Finalitzar</button>
     </div>
@@ -486,9 +497,9 @@
           <tr><td>${strat}</td><td>
             <select name="eff_${id}">
               <option value="">--Selecciona--</option>
-              <option>Molt difícil</option><option>Difícil</option>
-              <option>Moderada</option><option>Fàcil</option>
-              <option>Molt fàcil</option>
+              <option>Gens eficaç</option><option>Poc eficaç</option>
+              <option>Moderadament eficaç</option><option>Bastant eficaç</option>
+              <option>Molt eficaç</option>
             </select>
           </td></tr>`);
         facB.insertAdjacentHTML('beforeend', `
@@ -496,7 +507,7 @@
             <select name="fac_${id}">
                <option value="">--Selecciona--</option>
               <option>Molt difícil</option><option>Difícil</option>
-              <option>Moderada</option><option>Fàcil</option>
+              <option>Moderada</option><option>Fàcil</option
               <option>Molt fàcil</option>
             </select>
           </td></tr>`);
