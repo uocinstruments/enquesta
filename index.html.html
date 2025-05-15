@@ -556,6 +556,7 @@
       if (!validateBlock(i)) return;
       const id = i.toString();
       document.getElementById('block-' + id).classList.remove('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
 
       if (id === '2') {
         const age = document.querySelector("input[name='edat']:checked").value;
