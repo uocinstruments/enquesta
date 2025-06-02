@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qüestionari sobre la Gestió de l'Ansietat</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f3f4f6;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .question-block { display: none; }
+    .question-block.active { display: block; }
+    .btn {
+      background-color: #007bff;
+      color: #ffffff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      text-transform: uppercase;
+      margin-right: 10px;
+    }
+    .btn:hover { background-color: #0056b3; }
+    .btn:disabled { background-color: #cccccc; cursor: not-allowed; }
+    .question-title {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0056b3;
+      margin-bottom: 15px;
+    }
+    .question-option {
+      display: block;
+      margin-bottom: 15px;
+      font-size: 18px;
+      color: #444;
+      padding: 10px;
+      border-radius: 6px;
+    }
+    .question-option.error {
+      border-left: 4px solid #dc3545;
+      background-color: #f8d7da;
+    }
+    .question-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    .question-table caption {
+      caption-side: top;
+      text-align: left;
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-size: 18px;
+      color: #0056b3;
+    }
+    .question-table th,
+    .question-table td {
+      border: 1px solid #dddddd;
+      padding: 10px;
+      text-align: left;
+    }
+    .question-table th {
+      background-color: #f0f0f0;
+      font-weight: bold;
+    }
+    .question-table tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .question-table input[type="checkbox"] {
+      transform: scale(1.2);
+      margin-right: 8px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+    .question-table select,
+    .question-table input[type="text"] {
+      width: 100%;
+      padding: 6px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-top: 8px;
+    }
+    .custom-list {
+      background-color: #f0f8ff;
+      border: 1px solid #0056b3;
+      border-radius: 6px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    .custom-list legend {
+      font-weight: bold;
+      color: #0056b3;
+      margin-bottom: 10px;
+    }
+    .custom-list input[type="text"] {
+      margin-bottom: 10px;
+    }
+    .error-row td {
+      background-color: #f8d7da;
+    }
+    .error-row td:first-child {
+      border-left: 4px solid #dc3545;
+    }
+    #error-messages {
+      color: #dc3545;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .submit-message {
+      display: none;
+      text-align: center;
+      padding: 30px;
+      background-color: #d4edda;
+      color: #155724;
+      border-radius: 12px;
+      margin-top: 30px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    @media (max-width: 768px) {
+      .container { padding: 20px; }
+      th, td { padding: 10px; font-size: 14px; text-align: left; }
+      .question-title { font-size: 20px; }
+      .btn { padding: 10px 20px; }
+    }
+    /* Estil per al camp de text que només surt amb "Altres" */
+    #genere-altres-text {
+      display: none;
+      margin-top: 8px;
+      padding: 6px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      width: calc(100% - 12px);
+    }
+  </style>
+</head>
+<body>
+  <form id="ansietat-form"
+        method="post"
+        action="https://script.google.com/macros/s/AKfycbwMUAsMxHnOJzzYVpUrT1ZY0DDTa7T-XgJLh2l3AuJGAiHBdPYbxD9kKS1sPvROAMMgPA/exec">
+    <div class="container">
+
+    <!-- Block 1: Presentació -->
+  <div id="block-1" class="question-block active">
+    <div class="question-title">Presentació. Estudi Nacional sobre la gestió de l'ansietat</div>
+    <p>Benvingudes i benvinguts:</p>
+    <p>Aquest qüestionari té l’objectiu d’identificar quines estratègies d’autogestió de l’ansietat són conegudes per la població adulta catalana, la freqüència d’ús, la percepció d’eficàcia i la facilitat d’implementació percebuda. La informació recollida serà de gran utilitat per a desenvolupar programes de gestió de l'ansietat més eficaços per a la població.</p>
+    <p><strong>Durada:</strong> Respondre el qüestionari té una durada aproximada de 15 minuts.</p>
+    <!--<p><strong>Incentius:</strong> La vostra col·laboració serà de gran ajuda per a desenvolupar programes de gestió de l'ansietat més eficaços per a la població amb l'objectiu de millorar la qualitat de vida.</p>-->
+    <p><strong>Autors:</strong> El qüestionari ha estat elaborat pel Grup 4 de l’assignatura de Construcció d'instruments per a la investigació del Grau de Psicologia de la Universitat Oberta de Catalunya.</p>
+    <p><strong>Protecció de dades:</strong> D’acord amb la Llei Orgànica 3/2018, de 5 de desembre, de protecció de dades personals i garantia dels drets digitals, es garanteix la confidencialitat, anonimat i seguretat de les dades recollides. La participació és voluntària i les respostes s’utilitzaran exclusivament amb finalitats de la recerca.</p>
+    <p><strong>Contacte:</strong> Si tens qualsevol dubte pots contactar a: rrodriguezlo@uoc.edu</p>
+    <p>Moltes gràcies per la teva col·laboració.</p>
+
+    <!-- Consentiment informat: SI/NO -->
+    <p><strong>Si us plau selecciona un opció:</strong> </p>
+    <label class="question-option">
+      <input type="radio" name="consentiment" value="Si"> Accepto participar en aquesta enquesta<br>
+      <input type="radio" name="consentiment" value="No"> No accepto participar en aquesta enquesta
+    </label>
+    <button type="button" class="btn" onclick="nextBlock('1')">Següent</button>
+  </div>
+
+  <!-- Block 1b: Avis si no seleccionat -->
+  <div id="block-1b" class="question-block">
+    <div class="question-title">Consentiment necessari</div>
+    <p>Per poder continuar amb el qüestionari, és necessari que indiquis si acceptes participar.</p>
+    <button type="button" class="btn" onclick="prevBlock('1b')">Tornar</button>
+  </div>
+
+  <!-- Block 1c: No consentiment final -->
+  <div id="block-1c" class="question-block">
+    <div class="question-title">Sense consentiment</div>
+    <p>Si no acceptes participar, no pots continuar amb el qüestionari.</p>
+    <button type="button" class="btn" onclick="prevBlock('1c')">Tornar enrere</button>
+  </div>
+
+      <!-- Block 2: Edat -->
+      <div id="block-2" class="question-block">
+        <div class="question-title">Bloc 2 - Edat</div>
+        <label class="question-option">Quina edat tens?:(escull una opció):<br>
+          <input type="radio" name="edat" value="Menys de 18"> Menys de 18 anys (no inclòs en aquest estudi)<br>
+          <input type="radio" name="edat" value="18-24"> 18-24 anys<br>
+          <input type="radio" name="edat" value="25-34"> 25-34 anys<br>
+          <input type="radio" name="edat" value="35-44"> 35-44 anys<br>
+          <input type="radio" name="edat" value="45-54"> 45-54 anys<br>
+          <input type="radio" name="edat" value="55-64"> 55-64 anys<br>
+          <input type="radio" name="edat" value="65+"> 65 anys o més<br>
+        </label>
+        <button type="button" class="btn" onclick="prevBlock('2')">Anterior</button>
+        <button type="button" class="btn" onclick="nextBlock('2')">Següent</button>
+      </div>
+
+      <!-- Block 2b: Menors d'edat -->
+      <div id="block-2b" class="question-block">
+        <div class="question-title">Gràcies pel teu interès</div>
+        <p>Gràcies pel teu interès. Aquest estudi es dirigeix a persones de 18 anys o més.</p>
+        <button type="button" class="btn" onclick="prevBlock('2b')">Tornar</button>
+      </div>
+
+      <!-- Block 3: Dades sòcio-demogràfiques -->
+      <div id="block-3" class="question-block">
+        <div class="question-title">Bloc 3 - Dades sòcio-demogràfiques</div>
+        <label class="question-option">Sexe:(escull una opció):<br>
+          <input type="radio" name="sexe" value="Masculí"> Masculí<br>
+          <input type="radio" name="sexe" value="Femení"> Femení<br>
+          <input type="radio" name="sexe" value="Prefereixo no respondre"> Prefereixo no respondre<br>
+        </label>
+        <label class="question-option">Quin és el teu gènere?:(escull una opció):<br>
+          <input type="radio" id="genere-masculi"   name="genere" value="Masculí"> Masculí<br>
+          <input type="radio" id="genere-femeni"    name="genere" value="Femení"> Femení<br>
+          <input type="radio" id="genere-nobinari"  name="genere" value="No binari"> No binari<br>
+          <input type="radio" id="genere-altres"    name="genere" value="Altres"> Una altra identitat (especifica)<br>
+          <input type="text"     id="genere-altres-text" name="genere_altres_text" placeholder="Especifica la teva identitat"><br>
+          <input type="radio" id="genere-norespon"   name="genere" value="Prefereixo no respondre"> Prefereixo no respondre<br>
+        </label>
+        <label class="question-option">Quin és el teu estat civil?:(escull una opció):<br>
+          <input type="radio" name="estat_civil" value="Solter/a"> Solter/a<br>
+          <input type="radio" name="estat_civil" value="Casat/da"> Casat/da<br>
+          <input type="radio" name="estat_civil" value="parella estable"> Parella estable<br>
+          <input type="radio" name="estat_civil" value="Separat/da o divorciat/da"> Separat/da o divorciat/da<br>
+          <input type="radio" name="estat_civil" value="Vidu/a"> Vidu/a<br>
+          <input type="radio" name="estat_civil" value="Prefereixo no dir-ho"> Prefereixo no respondre<br>
+        </label>
+        <label class="question-option">Quin és el nivell més alt d’estudis que has finalitzat?:(escull una opció):<br>
+          <input type="radio" name="nivell_estudis" value="Sense estudis"> Sense estudis<br>
+          <input type="radio" name="nivell_estudis" value="Educació primària"> Educació primària<br>
+          <input type="radio" name="nivell_estudis" value="Educació secundària"> Educació secundària (ESO o equivalent)<br>
+          <input type="radio" name="nivell_estudis" value="Batxillerat o cicle mitjà"> Batxillerat o cicle formatiu de grau mitjà<br>
+          <input type="radio" name="nivell_estudis" value="Cicle mitja"> Cicle formatiu de grau mitjà<br>
+          <input type="radio" name="nivell_estudis" value="Cicle superior"> Cicle formatiu de grau superior<br>
+          <input type="radio" name="nivell_estudis" value="Universitaris"> Estudis universitaris (grau, llicenciatura, diplomatura)<br>
+          <input type="radio" name="nivell_estudis" value="Màster o postgrau"> Màster o postgrau<br>
+          <input type="radio" name="nivell_estudis" value="Doctorat"> Doctorat<br>
+          <input type="radio" name="nivell_estudis" value="Prefereixo no dir-ho"> Prefereixo no respondre<br>
+        </label>
+        <label class="question-option">Quina és la teva situació laboral actual?:(escull una opció):<br>
+          <input type="radio" name="situacio_laboral" value="Estudiant"> Estudiant<br>
+          <input type="radio" name="situacio_laboral" value="Estudiant i autònom"> Estudiant i autònom/a o treballador/a<br>
+          <input type="radio" name="situacio_laboral" value="Treball complet"> Treballador/a assalariat/da a jornada completa<br>
+          <input type="radio" name="situacio_laboral" value="Treball parcial"> Treballador/a assalariat/da jornada parcial<br>
+          <input type="radio" name="situacio_laboral" value="Autònom/a"> Autònom/a<br>
+          <input type="radio" name="situacio_laboral" value="Aturat/da"> En situació de desocupació (aturat/da)<br>
+          <input type="radio" name="situacio_laboral" value="tasques de la llar"> Dedicat/da a tasques de la llar<br>
+          <input type="radio" name="situacio_laboral" value="Jubilat/da"> Jubilat/da<br>
+          <input type="radio" name="situacio_laboral" value="Prefereixo no dir-ho"> Prefereixo no respondre<br>
+        </label>
+        <label class="question-option">Amb qui convius?(escull una opció):<br>
+          <input type="radio" name="situacio_conv" value="Sol/a"> Visc sol/a<br>
+          <input type="radio" name="situacio_conv" value="Parella"> Visc només amb parella<br>
+          <input type="radio" name="situacio_conv" value="Parella i fills"> Visc amb parella i fills<br>
+          <input type="radio" name="situacio_conv" value="fills"> Visc només amb fills<br>
+          <input type="radio" name="situacio_conv" value="pares"> Visc amb pares (amb o sense altres familiars)<br>
+          <input type="radio" name="situacio_conv" value="altres familiars"> Visc amb altres familiars<br>
+          <input type="radio" name="situacio_conv" value="Amics"> Visc amb amics o companys de pis<br>
+          <input type="radio" name="situacio_conv" value="Prefereixo no respondre"> Prefereixo no respondre<br>
+        </label>
+        <label class="question-option">On resideixes?(escull una opció):<br>
+          <input type="radio" name="residencia" value="Ciutat gran"> Ciutat gran (més de 100.000 habitants)<br>
+          <input type="radio" name="residencia" value="Ciutat mitjana"> Ciutat mitjana (entre 20.000 i 100.000 habitants)<br>
+          <input type="radio" name="residencia" value="Municipi petit"> Municipi petit (menys de 20.000 habitants)<br>
+          <input type="radio" name="residencia" value="Zona rural"> Zona rural (disseminats, masies, urbanitzacions aïllades, etc.)<br>
+          <input type="radio" name="residencia" value="Prefereixo no respondre"> Prefereixo no respondre<br>
+        </label>
+        <label class="question-option">T’han diagnosticat mai ansietat?:(escull una opció):<br>
+          <input type="radio" name="diagnostic" value="Sí diagnosticat"> Sí, diagnosticat per un professional<br>
+          <input type="radio" name="diagnostic" value="No sospito"> No, però sospito que en podria tenir<br>
+          <input type="radio" name="diagnostic" value="No pateixo"> No, no pateixo ansietat<br>
+          <input type="radio" name="diagnostic" value="Prefereixo no respondre"> Prefereixo no respondre<br>
+        </label>
+        <label class="question-option">Quin impacte té l’ansietat en el teu dia a dia?:(escull una opció):<br>
+          <input type="radio" name="impacte" value="Alt"> Alt<br>
+          <input type="radio" name="impacte" value="Moderat"> Moderat<br>
+          <input type="radio" name="impacte" value="Baix"> Baix<br>
+          <input type="radio" name="impacte" value="Nul"> Nul<br>
+          <input type="radio" name="impacte" value="Prefereixo no respondre"> Prefereixo no respondre<br>
+        </label>
+        <button type="button" class="btn" onclick="prevBlock('3')">Anterior</button>
+        <button type="button" class="btn" onclick="nextBlock('3')">Següent</button>
+      </div>
+
+      <!-- Block 4: Avaluació de l’ansietat -->
+      <div id="block-4" class="question-block">
+        <div class="question-title">Bloc 4 - Avaluació de l’ansietat</div>
+        <p>Assenyala amb quina freqüència has patit els següents problemes en els últims 15 dies:</p>
+        <label class="question-option">T’has sentit nerviós/a, ansiós/a o molt alterat/da:(escull una opció):<br>
+          <input type="radio" name="nervios" value="Mai"> Mai<br>
+          <input type="radio" name="nervios" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+          <input type="radio" name="nervios" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+          <input type="radio" name="nervios" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+        </label>
+        <label class="question-option">No has pogut deixar de preocupar-te:(escull una opció):<br>
+          <input type="radio" name="preocupacio" value="Mai"> Mai<br>
+          <input type="radio" name="preocupacio" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+          <input type="radio" name="preocupacio" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+          <input type="radio" name="preocupacio" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+        </label>
+        <label class="question-option">T'has preocupat excessivament per diferents coses:(escull una opció):<br>
+          <input type="radio" name="excessiu" value="Mai"> Mai<br>
+          <input type="radio" name="excessiu" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+          <input type="radio" name="excessiu" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+          <input type="radio" name="excessiu" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+        </label>
+        <label class="question-option">Has tingut dificultat per relaxar-te:(escull una opció):<br>
+          <input type="radio" name="relaxacio" value="Mai"> Mai<br>
+          <input type="radio" name="relaxacio" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+          <input type="radio" name="relaxacio" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+          <input type="radio" name="relaxacio" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+        </label>
+        <label class="question-option">T'has sentit tan intranquil/a que no podies estar quiet/a:(escull una opció):<br>
+          <input type="radio" name="intranquil" value="Mai"> Mai<br>
+          <input type="radio" name="intranquil" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+          <input type="radio" name="intranquil" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+          <input type="radio" name="intranquil" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+        </label>
+        <label class="question-option">T'has irritat o enfadat amb facilitat:(escull una opció):<br>
+          <input type="radio" name="irritabilitat" value="Mai"> Mai<br>
+          <input type="radio" name="irritabilitat" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+          <input type="radio" name="irritabilitat" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+          <input type="radio" name="irritabilitat" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+        </label>
+        <label class="question-option">Has sentit por, com si hagués de passar una cosa terrible:(escull una opció):<br>
+          <input type="radio" name="por" value="Mai"> Mai<br>
+          <input type="radio" name="por" value="Menys de la meitat dels dies"> Menys de la meitat dels dies<br>
+          <input type="radio" name="por" value="Més de la meitat dels dies"> Més de la meitat dels dies<br>
+          <input type="radio" name="por" value="Gairebé tots els dies"> Gairebé tots els dies<br>
+        </label>
+        <button type="button" class="btn" onclick="prevBlock('4')">Anterior</button>
+        <button type="button" class="btn" onclick="nextBlock('4')">Següent</button>
+      </div>
+
+      <!-- Block 5: Coneixement i Ús d’Estratègies -->
+      <div id="block-5" class="question-block">
+        <div class="question-title">Bloc 5 - Coneixement i Ús d’Estratègies</div>
+        <table class="question-table">
+          <caption>Quines d’aquestes estratègies d’autogestió de l’ansietat coneixes? (Selecciona totes les que coneguis)</caption>
+          <thead><tr><th>Selecció</th><th>Estrategia</th></tr></thead>
+          <tbody>
+            <tr><td><input type="checkbox" name="coneixement" value="No conec cap estratègia no farmacològica"></td><td>No conec cap estratègia no farmacològica</td></tr>
+            <tr><td><input type="checkbox" name="coneixement" value="Exercici físic regular"></td><td>Exercici físic regular (córrer, caminar, ioga, etc.)</td></tr>
+            <tr><td><input type="checkbox" name="coneixement" value="Tècniques de relaxació"></td><td>Tècniques de relaxació (respiració profunda, relaxació muscular progressiva)</td></tr>
+            <tr><td><input type="checkbox" name="coneixement" value="Meditació o mindfulness"></td><td>Meditació o <i>mindfulness</i></td></tr>
+            <tr><td><input type="checkbox" name="coneixement" value="Visualització guiada o imaginació positiva"></td><td>Visualització guiada o imaginació positiva</td></tr>
+            <tr><td><input type="checkbox" name="coneixement" value="Pràctiques espirituals o religioses"></td><td>Pràctiques espirituals o religioses (pregària, meditació religiosa, etc.)</td></tr>
+            <tr><td><input type="checkbox" name="coneixement" value="Suport social"></td><td>Suport social (parlar amb amics o familiars)</td></tr>
+            <tr><td><input type="checkbox" name="coneixement" value="Expressió artística"></td><td>Expressió artística (pintura, música, escriptura, dansa, etc.)</td></tr>
+            <tr><td><input type="checkbox" name="coneixement" value="Diari personal o autoreflexió escrita"></td><td>Diari personal o autoreflexió escrita</td></tr>
+            <tr><td><input type="checkbox" name="coneixement" value="Teràpia amb animals"></td><td>Interacció amb animals/mascotes</td></tr>
+          </tbody>
+        </table>
+        <table class="question-table">
+          <caption>Quines estratègies no farmacològiques utilitzes per gestionar l’ansietat? (Selecciona totes les que utilitzis)</caption>
+          <thead><tr><th>Selecció</th><th>Estrategia</th></tr></thead>
+          <tbody>
+            <tr><td><input type="checkbox" name="us_estrategies" value="No utilitzo cap estratègia no farmacològica"></td><td>No utilitzo cap estratègia no farmacològica</td></tr>
+            <tr><td><input type="checkbox" name="us_estrategies" value="Exercici físic regular"></td><td>Exercici físic regular (córrer, caminar, ioga, etc.)</td></tr>
+            <tr><td><input type="checkbox" name="us_estrategies" value="Tècniques de relaxació"></td><td>Tècniques de relaxació (respiració profunda, relaxació muscular progressiva)</td></tr>
+            <tr><td><input type="checkbox" name="us_estrategies" value="Meditació o mindfulness"></td><td>Meditació o <i>mindfulness</i></td></tr>
+            <tr><td><input type="checkbox" name="us_estrategies" value="Visualització guiada o imaginació positiva"></td><td>Visualització guiada o imaginació positiva</td></tr>
+            <tr><td><input type="checkbox" name="us_estrategies" value="Pràctiques espirituals o religioses"></td><td>Pràctiques espirituals o religioses (pregària, meditació religiosa)</td></tr>
+            <tr><td><input type="checkbox" name="us_estrategies" value="Suport social"></td><td>Suport social (parlar amb amics o familiars)</td></tr>
+            <tr><td><input type="checkbox" name="us_estrategies" value="Expressió artística"></td><td>Expressió artística (pintura, música, escriptura)</td></tr>
+            <tr><td><input type="checkbox" name="us_estrategies" value="Diari personal o autoreflexió escrita"></td><td>Diari personal o autoreflexió escrita</td></tr>
+            <tr><td><input type="checkbox" name="us_estrategies" value="Teràpia amb animals"></td><td>Interacció amb animals/mascotes</td></tr>
+          </tbody>
+        </table>
+        <fieldset class="custom-list">
+          <legend>Has utilitzat altres estratègies no farmacològiques d’autogestió de l’ansietat que no figuren al llistat anterior? (Especifica’n un màxim de 5)</legend>
+          <input type="text" name="us_estrategies_custom" placeholder="Estratègia 1"><br>
+          <input type="text" name="us_estrategies_custom" placeholder="Estratègia 2"><br>
+          <input type="text" name="us_estrategies_custom" placeholder="Estratègia 3"><br>
+          <input type="text" name="us_estrategies_custom" placeholder="Estratègia 4"><br>
+          <input type="text" name="us_estrategies_custom" placeholder="Estratègia 5">
+        </fieldset>
+        <button type="button" class="btn" onclick="prevBlock('5')">Anterior</button>
+        <button type="button" class="btn" onclick="nextBlock('5')">Següent</button>
+      </div>
+
+      <!-- Block 5b: Raons per no utilitzar cap estratègia -->
+      <div id="block-5b" class="question-block">
+        <div class="question-title">Per què no utilitzes cap estratègia no farmacològica?</div>
+        <table class="question-table">
+          <caption>Selecciona totes les que s'apliquin</caption>
+          <thead><tr><th>Selecció</th><th>Raó</th></thead>
+          <tbody>
+            <tr><td><input type="checkbox" name="no_estrategies_reasons" value="No ho necessito"></td><td>No ho necessito</td></tr>
+            <tr><td><input type="checkbox" name="no_estrategies_reasons" value="No sé com fer-ho"></td><td>No sé com fer-ho</td></tr>
+            <tr><td><input type="checkbox" name="no_estrategies_reasons" value="Crec que no són efectives"></td><td>Crec que no són efectives</td></tr>
+            <tr><td><input type="checkbox" name="no_estrategies_reasons" value="No tinc temps"></td><td>No tinc temps</td></tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn" onclick="prevBlock('5b')">Anterior</button>
+        <button type="button" class="btn" onclick="nextBlock('5b')">Següent</button>
+      </div>
+
+      <!-- Block 6: Freqüència, Efectivitat i Facilitat d’Implementació -->
+      <div id="block-6" class="question-block">
+        <div class="question-title">Bloc 6 - Freqüència, Efectivitat i Facilitat d’Implementació</div>
+        <table id="taula-frequencia" class="question-table">
+          <caption>Amb quina freqüència utilitzes aquesta estratègia?</caption>
+          <thead><tr><th>Estratègia</th><th>Freqüència</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <table id="taula-eficacia" class="question-table">
+          <caption>Com valores l’efectivitat d’aquesta estratègia?</caption>
+          <thead><tr><th>Estrategia</th><th>Efectivitat</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <table id="taula-facilitat" class="question-table">
+          <caption>Com de fàcil et resulta posar en pràctica aquesta estratègia?</caption>
+          <thead><tr><th>Estrategia</th><th>Facilitat</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <button type="button" class="btn" onclick="prevBlock('6')">Anterior</button>
+        <button type="button" class="btn" onclick="nextBlock('6')">Següent</button>
+      </div>
+
+      <!-- Block 7: Final -->
+      <div id="block-7" class="question-block">
+        <p>Gràcies per haver completat aquest qüestionari sobre la gestió de l'ansietat. La teva participació és molt valuosa i contribuirà al coneixement sobre les estratègies d’autogestió de l’ansietat conegudes i utilitzades per la població catalana.</p>
+        <button type="button" class="btn" onclick="prevBlock('7')">Anterior</button>
+        <button type="submit" class="btn" onclick="submitForm()">Finalitzar</button>
+      </div>
+
+      <div id="error-messages"></div>
+      <div id="submit-message" class="submit-message">Gràcies per completar el qüestionari.</div>
+    </div>
+  </form>
+
+  <script>
+    function clearErrors(block) {
+      block.querySelectorAll('.question-option.error').forEach(el => el.classList.remove('error'));
+      block.querySelectorAll('tr.error-row').forEach(row => row.classList.remove('error-row'));
+      document.getElementById('error-messages').innerHTML = '';
+    }
+
+    function validateBlock(i) {
+      const id = i.toString();
+      const block = document.getElementById('block-' + id);
+      clearErrors(block);
+      // Consentiment al bloc 1
+      if (id === '1') {
+    const sel = document.querySelector("input[name='consentiment']:checked");
+    if (!sel) {
+      block.classList.remove('active');
+      document.getElementById('block-1b').classList.add('active');
+      return false;
+    }
+    if (sel.value === 'No') {
+      block.classList.remove('active');
+      document.getElementById('block-1c').classList.add('active');
+      return false;
+    }
+  }
+      let errors = [];
+
+      if (id === '5b') {
+        if (block.querySelectorAll("input[name='no_estrategies_reasons']:checked").length === 0) {
+          errors.push('Si us plau, cal respondre "Per què no utilitzes cap estratègia no farmacològica?".');
+        }
+      } else if (id === '6') {
+        ['taula-frequencia','taula-eficacia','taula-facilitat'].forEach(tableId => {
+          block.querySelectorAll('#' + tableId + ' select').forEach(sel => {
+            if (!sel.value) {
+              const row = sel.closest('tr');
+              row.classList.add('error-row');
+              const estr = row.cells[0].textContent;
+              const label = tableId === 'taula-frequencia' ? 'freqüència'
+                          : tableId === 'taula-eficacia'   ? 'efectivitat'
+                          : 'facilitat';
+              errors.push(`Si us plau, cal seleccionar la ${label} per a "${estr}".`);
+            }
+          });
+        });
+      } else if (id === '2b') {
+        return true;
+      } else {
+        const inputs = Array.from(block.querySelectorAll('input[type="radio"], input[type="checkbox"]'));
+        const names  = Array.from(new Set(inputs.map(i => i.name).filter(n => n)));
+        names.forEach(name => {
+          if (name === 'us_estrategies_custom') return;
+          if (block.id === 'block-5b' || !name.startsWith('no_estrategies_reasons')) {
+            if (block.querySelectorAll(`input[name="${name}"]:checked`).length === 0) {
+              const first = block.querySelector(`input[name="${name}"]`);
+              const label = first.closest('label.question-option');
+              if (label) label.classList.add('error');
+              const text  = label ? label.childNodes[0].textContent.replace(':','').trim() : name;
+              errors.push(`Si us plau, cal respondre "${text}".`);
+            }
+          }
+        });
+      }
+
+      if (id === '3') {
+        if (block.querySelectorAll('input[name="genere"]:checked').length === 0) {
+          errors.push('Si us plau, cal respondre "Quin és el teu gènere?".');
+        }
+        const altresChecked = document.getElementById('genere-altres').checked;
+        const altresText    = document.getElementById('genere-altres-text').value.trim();
+        if (altresChecked && !altresText) {
+          errors.push('Si us plau, especifica la teva altra identitat de gènere.');
+        }
+      }
+
+      if (errors.length) {
+        const errDiv = document.getElementById('error-messages');
+        const ul     = document.createElement('ul');
+        errors.forEach(m => { const li = document.createElement('li'); li.textContent = m; ul.appendChild(li); });
+        errDiv.appendChild(ul);
+        errDiv.scrollIntoView({ behavior: 'smooth' });
+        return false;
+      }
+      return true;
+    }
+
+    function populateTables() {
+      let selected = Array.from(
+        document.querySelectorAll("input[name='us_estrategies']:checked")
+      ).map(e => e.value);
+
+      const customs = Array.from(
+        document.querySelectorAll("input[name='us_estrategies_custom']")
+      ).map(i => i.value.trim()).filter(v => v);
+      if (customs.length) selected = selected.concat(customs);
+
+      const freqB = document.querySelector('#taula-frequencia tbody');
+      const effB  = document.querySelector('#taula-eficacia tbody');
+      const facB  = document.querySelector('#taula-facilitat tbody');
+      freqB.innerHTML = effB.innerHTML = facB.innerHTML = '';
+
+      selected.forEach(strat => {
+        const id = strat.replace(/\s+/g, '_').replace(/[^\w_]/g, '');
+        freqB.insertAdjacentHTML('beforeend', `
+          <tr><td>${strat}</td><td>
+            <select name="freq_${id}">
+              <option value="">--Selecciona--</option>
+              <option>Diàriament</option><option>Setmanalment</option>
+              <option>Mensualment</option><option>Rarament</option>
+              <option>Mai</option>
+            </select>
+          </td></tr>`);
+        effB.insertAdjacentHTML('beforeend', `
+          <tr><td>${strat}</td><td>
+            <select name="eff_${id}">
+              <option value="">--Selecciona--</option>
+              <option>Gens efectiva</option><option>Poc efectiva</option>
+              <option>Moderadament efectiva</option><option>Bastant efectiva</option>
+              <option>Molt efectiva</option>
+            </select>
+          </td></tr>`);
+        facB.insertAdjacentHTML('beforeend', `
+          <tr><td>${strat}</td><td>
+            <select name="fac_${id}">
+               <option value="">--Selecciona--</option>
+              <option>Molt difícil</option><option>Difícil</option>
+              <option>Moderada</option><option>Fàcil</option>
+              <option>Molt fàcil</option>
+            </select>
+          </td></tr>`);
+      });
+    }
+
+    function nextBlock(i) {
+      if (!validateBlock(i)) return;
+      const id = i.toString();
+      document.getElementById('block-' + id).classList.remove('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (id === '1') { document.getElementById('block-2').classList.add('active'); return; }
+
+
+      if (id === '1') {
+        document.getElementById('block-2').classList.add('active');
+        return;
+      }
+      if (id === '2') {
+        const age = document.querySelector("input[name='edat']:checked").value;
+        if (age === 'Menys de 18') {
+          document.getElementById('block-2b').classList.add('active');
+          return;
+        }
+      }
+      if (id === '5') {
+        const noOpt = document.querySelector("input[name='us_estrategies'][value='No utilitzo cap estratègia no farmacològica']:checked");
+        if (noOpt) {
+          document.getElementById('block-5b').classList.add('active');
+          return;
+        }
+        populateTables();
+        document.getElementById('block-6').classList.add('active');
+        return;
+      }
+      if (id === '5b' || id === '6') {
+        document.getElementById('block-7').classList.add('active');
+        return;
+      }
+      const nextId = (parseInt(id, 10) + 1).toString();
+      document.getElementById('block-' + nextId).classList.add('active');
+    }
+
+   function prevBlock(i) {
+  const id = i.toString();
+  document.getElementById('block-' + id).classList.remove('active');
+
+  if (id === '1b' || id === '1c') {
+    // Tornem al primer bloc de consentiment
+    document.getElementById('block-1').classList.add('active');
+  } else {
+    // Retrocedim segons la lògica de blocs
+    if (id === '2') {
+      document.getElementById('block-1').classList.add('active');
+    } else if (id === '2b') {
+      document.getElementById('block-2').classList.add('active');
+    } else if (id === '3') {
+      document.getElementById('block-2').classList.add('active');
+    } else if (id === '4') {
+      document.getElementById('block-3').classList.add('active');
+    } else if (id === '5') {
+      document.getElementById('block-4').classList.add('active');
+    } else if (id === '5b') {
+      document.getElementById('block-5').classList.add('active');
+    } else if (id === '6') {
+      const noOpt = document.querySelector("input[name='us_estrategies'][value='No utilitzo cap estratègia no farmacològica']:checked");
+      if (noOpt) {
+        document.getElementById('block-5b').classList.add('active');
+      } else {
+        document.getElementById('block-5').classList.add('active');
+      }
+    } else if (id === '7') {
+      const noOpt = document.querySelector("input[name='us_estrategies'][value='No utilitzo cap estratègia no farmacològica']:checked");
+      if (noOpt) {
+        document.getElementById('block-5b').classList.add('active');
+      } else {
+        document.getElementById('block-6').classList.add('active');
+      }
+    }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const altresRadio = document.getElementById('genere-altres');
+  const altresText  = document.getElementById('genere-altres-text');
+  const altresGroup = document.querySelectorAll("input[name='genere']");
+
+  altresGroup.forEach(radio => {
+    radio.addEventListener('change', () => {
+      if (altresRadio.checked) {
+        altresText.style.display = 'block';
+      } else {
+        altresText.style.display = 'none';
+        altresText.value = '';
+      }
+    });
+  });
+});
+
+function submitForm() {
+  // Neteja d'errors del bloc final
+  clearErrors(document.getElementById('block-7'));
+  // Amaguem el formulari i mostrem el missatge
+  document.querySelector('.container').style.display = 'none';
+  document.getElementById('submit-message').style.display = 'block';
+}
+
+document.getElementById('ansietat-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  fetch(this.action, {
+    method: 'POST',
+    body: new FormData(this)
+  })
+  .then(r => r.json())
+  .then(json => {
+    if (json.result === 'success') {
+      alert('Resposta registrada amb èxit!');
+    } else {
+      alert('Error: ' + (json.message || ''));
+    }
+  })
+  .catch(err => {
+    alert('Error de xarxa: ' + err.message);
+  });
+});
+
+  </script>
+</body>
+</html>
